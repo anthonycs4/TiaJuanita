@@ -1,0 +1,206 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(-45deg, #ffecd2, #fcb69f, #ffdde1, #c2e9fb);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Animación del fondo */
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Estilos del header (banner) */
+header {
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo negro semi-transparente */
+    padding: 20px;
+    text-align: center;
+    color: #fff; /* Texto blanco sobre fondo oscuro */
+    transition: background-color 1s ease;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+/* Ajuste del color del texto dependiendo del fondo */
+header.light-bg {
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo claro */
+    color: #000; /* Texto negro sobre fondo claro */
+}
+
+/* Slider y galería */
+.slider {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    overflow: hidden;
+}
+
+.slide {
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.slide.active {
+    opacity: 1;
+    position: relative;
+}
+
+.slide img {
+    width: 100%;
+    border-radius: 10px;
+    transform: scale(1.05); /* Zoom leve */
+    transition: transform 1.5s ease-in-out;
+}
+
+.slide.active img {
+    transform: scale(1);
+}
+
+.nav {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav button {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: #fff;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.gallery {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.photo {
+    width: 30%;
+    margin: 10px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.photo img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.photo.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Estilos Responsive */
+
+/* Para pantallas menores de 768px */
+@media (max-width: 768px) {
+    .slider {
+        max-width: 100%;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .photo {
+        width: 45%;
+    }
+
+    .nav button {
+        font-size: 1.25rem;
+        padding: 8px;
+    }
+}
+
+/* Para pantallas menores de 480px */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .photo {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    .nav button {
+        font-size: 1rem;
+        padding: 6px;
+    }
+}
+
+/* Para pantallas de 360px (móviles más pequeños) */
+@media (max-width: 360px) {
+    body {
+        padding: 0;
+    }
+
+    header {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        padding: 0 10px;
+    }
+
+    .slider {
+        max-width: 100%;
+        padding: 0 10px;
+    }
+
+    .nav button {
+        font-size: 0.9rem;
+        padding: 5px;
+    }
+
+    .gallery {
+        padding: 10px;
+    }
+
+    .photo {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    footer {
+        padding: 10px;
+    }
+}
